@@ -10,7 +10,6 @@ from promval.parser.PromQLParserListener import PromQLParserListener
 
 
 class MyErrorListener(ErrorListener):
-
     def __init__(self):
         super(MyErrorListener, self).__init__()
 
@@ -35,5 +34,5 @@ class Validator(PromQLParserListener):
         lexer = PromQLLexer(input_stream)
         token_stream = CommonTokenStream(lexer)
         parser = PromQLParser(token_stream)
-        parser.addErrorListener( MyErrorListener() )
+        parser.addErrorListener(MyErrorListener())
         return parser.expression()

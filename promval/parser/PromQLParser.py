@@ -278,6 +278,7 @@ class PromQLParser ( Parser ):
         def vectorOperation(self):
             return self.getTypedRuleContext(PromQLParser.VectorOperationContext,0)
 
+
         def EOF(self):
             return self.getToken(PromQLParser.EOF, 0)
 
