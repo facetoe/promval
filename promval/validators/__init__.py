@@ -27,7 +27,8 @@ class Validator(PromQLParserListener):
         errors = self.errors.copy()
         self.errors.clear()
         if errors:
-            raise ValidationError("\n".join(map(str, errors)))
+            message = "\n" + "\n".join(map(str, errors))
+            raise ValidationError(message)
 
     def _parse(self, promql):
         input_stream = InputStream(promql)
