@@ -1,7 +1,7 @@
 import pytest
 
 from promval.error import ValidationError
-from promval.validators.aggregation import (
+from promval.validator import (
     AggregationGroupValidator,
     AggregationLabelValueValidator,
 )

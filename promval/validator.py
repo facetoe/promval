@@ -1,8 +1,24 @@
+from typing import List
+
+from promval import ParseWalker
+from promval.error import ValidationError
+
 from typing import Set
 
 from promval.error import Error
 from promval.parser.PromQLParser import PromQLParser
-from promval.validators import Validator
+
+
+class Validator(ParseWalker):
+    errors: List = []
+
+    def validate(self, expression):
+        self._execute(expression)
+        errors = self.errors.copy()
+        self.errors.clear()
+        if errors:
+            message = "\n" + "\n".join(map(str, errors))
+            raise ValidationError(message)
 
 
 class AggregationGroupValidator(Validator):
