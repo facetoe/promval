@@ -28,7 +28,7 @@ test:
 	PYTHONPATH=. pytest-3 tests/
 
 reformat:
-	black --exclude promval/parser promval
+	black --exclude promval/parser promval/ tests/
 
 flake8:
-	flake8 --exclude  promval/parser/ promval/
+	flake8 --exclude  promval/parser/ promval/ tests/
