@@ -1,16 +1,29 @@
 import pytest
 
 from promval.error import ValidationError
-from promval.validators.aggregation import ByGroupValidator, AggregationLabelValueValidator
+from promval.validators.aggregation import (
+    AggregationGroupValidator,
+    AggregationLabelValueValidator,
+)
 
 
-def test_group_validator_valid():
+def test_group_by_validator_valid():
     expr = """
         sum by (job) (
           rate(http_requests_total[5m])
         )
     """
-    validator = ByGroupValidator(expected={"job"})
+    validator = AggregationGroupValidator(expected={"job"})
+    validator.validate(expr)
+
+
+def test_group_without_validator_valid():
+    expr = """
+        sum without (job) (
+          rate(http_requests_total[5m])
+        )
+    """
+    validator = AggregationGroupValidator(expected={"job"})
     validator.validate(expr)
 
 
@@ -23,7 +36,7 @@ def test_group_validator_complex():
             )
         ) > 5
     """
-    validator = ByGroupValidator(expected={"name", "group"})
+    validator = AggregationGroupValidator(expected={"name", "group"})
     validator.validate(expr)
 
 
@@ -33,12 +46,12 @@ def test_group_validator_missing_group():
           rate(http_requests_total[5m])
         )
     """
-    validator = ByGroupValidator(expected={"job", "thing"})
+    validator = AggregationGroupValidator(expected={"job", "thing"})
     with pytest.raises(ValidationError):
         validator.validate(expr)
 
 
-def test_label_validator_valid():
+def test_label_value_validator_valid():
     expr = """
         max by (very, second)(foo_metric{very=~'important', something='else'})
     """
@@ -46,7 +59,7 @@ def test_label_validator_valid():
     validator.validate(expr)
 
 
-def test_label_validator_missing_label():
+def test_label_value_validator_missing_label():
     expr = """
         max by (ve, second)(foo_metric{very=~'important', something='else'})
     """
@@ -55,7 +68,7 @@ def test_label_validator_missing_label():
         validator.validate(expr)
 
 
-def test_label_validator_multiple_labels():
+def test_label_value_validator_multiple_labels():
     expr = """
         avg by (first, second)(foo_metric{very=~'important'} / foo_metric{very=~'important'}) > 8
     """

@@ -5,19 +5,28 @@ from promval.parser.PromQLParser import PromQLParser
 from promval.validators import Validator
 
 
-class ByGroupValidator(Validator):
+class AggregationGroupValidator(Validator):
     def __init__(self, expected: Set[str]):
         self.expected = expected
 
-    def enterBy(self, ctx: PromQLParser.ByContext):
+    def enterAggregation(self, ctx: PromQLParser.AggregationContext):
+        by, without = ctx.by(), ctx.without()
+        if by:
+            context = by
+            label_list = by.labelNameList()
+        else:
+            context = without
+            label_list = without.labelNameList()
+
         groupings = set()
-        for label in ctx.labelNameList().labelName():
-            groupings.add(label.getText())
+        for label in label_list.labelName():
+            label_name = label.getText()
+            groupings.add(label_name)
 
         missing = self.expected.difference(groupings)
         if missing:
             message = f"missing required metric names {missing}"
-            self.errors.append(Error(ctx, message))
+            self.errors.append(Error(context, message))
 
 
 class AggregationLabelValueValidator(Validator):
@@ -33,22 +42,23 @@ class AggregationLabelValueValidator(Validator):
             if label_value == self.target_label_value:
                 labels, context = self.stack[-1]
                 if label_name not in labels:
-                    message = (
-                        f"expected label name '{label_name}' in aggregation clause"
-                    )
+                    message = f"expected label name '{label_name}' in group clause"
                     self.errors.append(Error(context, message=message))
 
     def enterAggregation(self, ctx: PromQLParser.AggregationContext):
         by, without = ctx.by(), ctx.without()
         if by:
             context = by
-            label_list = by.labelNameList()
-        else:
+            label_list = by.labelNameList().labelName()
+        elif without:
             context = without
-            label_list = without.labelNameList()
+            label_list = without.labelNameList().labelName()
+        else:
+            context = ctx
+            label_list = []
 
         labels = []
-        for label in label_list.labelName():
+        for label in label_list:
             label_name = label.getText()
             labels.append(label_name)
         self.stack.append((labels, context))
