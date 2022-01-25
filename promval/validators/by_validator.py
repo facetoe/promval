@@ -12,7 +12,7 @@ class ByGroupValidator(Validator):
     def enterBy(self, ctx: PromQLParser.ByContext):
         groupings = set()
         for label in ctx.labelNameList().labelName():
-            groupings.add(str(label.METRIC_NAME().getText()))
+            groupings.add(label.getText())
 
         missing = self.expected.difference(groupings)
         if missing:
@@ -27,7 +27,7 @@ class ByLabelValueValidator(Validator):
 
     def enterLabelMatcherList(self, ctx: PromQLParser.LabelMatcherListContext):
         for label in ctx.labelMatcher():
-            label_name = label.labelName().METRIC_NAME().getText()
+            label_name = label.labelName().getText()
             label_value = label.STRING().getText()
             label_value = label_value[1:-1]  # strip quotes
             if label_value == self.target_label_value:

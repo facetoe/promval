@@ -14,6 +14,19 @@ def test_group_validator_valid():
     validator.validate(expr)
 
 
+def test_group_validator_complex():
+    expr = """
+        sum by (group, name)
+        (
+            sum_over_time(
+                label_replace(some_metric, "name", "$1", "othername", "(.*)")[6h:]
+            )
+        ) > 5
+    """
+    validator = ByGroupValidator(expected={"name", "group"})
+    validator.validate(expr)
+
+
 def test_group_validator_missing_group():
     expr = """
         sum by (job) (
