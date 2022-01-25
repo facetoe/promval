@@ -29,3 +29,6 @@ test:
 
 reformat:
 	black --exclude promval/parser promval
+
+flake8:
+	flake8 --exclude  promval/parser/ promval/
