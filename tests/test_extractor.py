@@ -7,7 +7,7 @@ def test_aggregation_group_extractor():
     """
     extractor = AggregationGroupExtractor()
     items = extractor.extract(expr)
-    assert items == [{"first", "second"}]
+    assert items == [["first", "second"]]
 
 
 def test_aggregation_group_extractor_multiple():
@@ -18,7 +18,7 @@ def test_aggregation_group_extractor_multiple():
     """
     extractor = AggregationGroupExtractor()
     items = extractor.extract(expr)
-    assert items == [{"first", "second"}, {"third", "fourth"}]
+    assert items == [["first", "second"], ["third", "fourth"]]
 
 
 def test_aggregation_group_extractor_no_agg():

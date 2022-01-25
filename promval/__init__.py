@@ -29,3 +29,20 @@ class ParseWalker(PromQLParserListener):
         parser = PromQLParser(token_stream)
         parser.addErrorListener(MyErrorListener())
         return parser.expression()
+
+    def extract_labels(self, ctx: PromQLParser.AggregationContext):
+        by, without = ctx.by(), ctx.without()
+        if by:
+            context = by
+            label_list = by.labelNameList().labelName()
+        elif without:
+            context = without
+            label_list = without.labelNameList().labelName()
+        else:
+            context = ctx
+            label_list = []
+        labels = []
+        for label in label_list:
+            label_name = label.getText()
+            labels.append(label_name)
+        return context, labels

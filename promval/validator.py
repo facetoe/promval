@@ -26,22 +26,10 @@ class AggregationGroupValidator(Validator):
         self.expected = expected
 
     def enterAggregation(self, ctx: PromQLParser.AggregationContext):
-        by, without = ctx.by(), ctx.without()
-        if by:
-            context = by
-            label_list = by.labelNameList()
-        else:
-            context = without
-            label_list = without.labelNameList()
-
-        groupings = set()
-        for label in label_list.labelName():
-            label_name = label.getText()
-            groupings.add(label_name)
-
-        missing = self.expected.difference(groupings)
+        context, labels = self.extract_labels(ctx)
+        missing = self.expected.difference(labels)
         if missing:
-            message = f"missing required metric names {missing}"
+            message = f"missing required metric names {missing} in group clause"
             self.errors.append(Error(context, message))
 
 
@@ -62,19 +50,5 @@ class AggregationLabelValueValidator(Validator):
                     self.errors.append(Error(context, message=message))
 
     def enterAggregation(self, ctx: PromQLParser.AggregationContext):
-        by, without = ctx.by(), ctx.without()
-        if by:
-            context = by
-            label_list = by.labelNameList().labelName()
-        elif without:
-            context = without
-            label_list = without.labelNameList().labelName()
-        else:
-            context = ctx
-            label_list = []
-
-        labels = []
-        for label in label_list:
-            label_name = label.getText()
-            labels.append(label_name)
+        context, labels = self.extract_labels(ctx)
         self.stack.append((labels, context))
