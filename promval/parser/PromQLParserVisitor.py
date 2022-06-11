@@ -54,6 +54,11 @@ class PromQLParserVisitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
+    # Visit a parse tree produced by PromQLParser#vectorMatchOp.
+    def visitVectorMatchOp(self, ctx:PromQLParser.VectorMatchOpContext):
+        return self.visitChildren(ctx)
+
+
     # Visit a parse tree produced by PromQLParser#subqueryOp.
     def visitSubqueryOp(self, ctx:PromQLParser.SubqueryOpContext):
         return self.visitChildren(ctx)
