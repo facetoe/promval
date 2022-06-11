@@ -51,6 +51,16 @@ def test_group_validator_missing_group():
         validator.validate(expr)
 
 
+def test_group_validator_combined_query():
+    expr = """
+        max by (very, second)(foo_metric{very=~'important', something='else'}) > 0
+        and on (host,project)(metric_name) > 0
+    """
+    validator = AggregationGroupValidator(expected={"job", "thing"})
+    with pytest.raises(ValidationError):
+        validator.validate(expr)
+
+
 def test_label_value_validator_valid():
     expr = """
         max by (very, second)(foo_metric{very=~'important', something='else'})

@@ -89,6 +89,15 @@ class PromQLParserListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by PromQLParser#vectorMatchOp.
+    def enterVectorMatchOp(self, ctx:PromQLParser.VectorMatchOpContext):
+        pass
+
+    # Exit a parse tree produced by PromQLParser#vectorMatchOp.
+    def exitVectorMatchOp(self, ctx:PromQLParser.VectorMatchOpContext):
+        pass
+
+
     # Enter a parse tree produced by PromQLParser#subqueryOp.
     def enterSubqueryOp(self, ctx:PromQLParser.SubqueryOpContext):
         pass
