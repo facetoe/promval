@@ -1,4 +1,5 @@
-from promval.extractor import AggregationGroupExtractor
+from promval.extractor import AggregationGroupExtractor, LabelExtractor
+from promval.types import Label
 
 
 def test_aggregation_group_extractor():
@@ -28,3 +29,20 @@ def test_aggregation_group_extractor_no_agg():
     extractor = AggregationGroupExtractor()
     items = extractor.extract(expr)
     assert items == []
+
+
+def test_label_extractor():
+    expr = """
+        avg by (first, second)(metric{label='thing', other!='stuff'}) / thing{ass='grass'}
+    """
+    extractor = LabelExtractor()
+    items = extractor.extract(expr)
+    assert items == [
+        [
+            Label(name="label", operator="=", value="'thing'"),
+            Label(name="other", operator="!=", value="'stuff'"),
+        ],
+        [
+            Label(name="ass", operator="=", value="'grass'"),
+        ],
+    ]
