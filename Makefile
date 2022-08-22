@@ -1,5 +1,5 @@
 WORKDIR=build
-ANTLR_VERSION=4.9.3
+ANTLR_VERSION=4.10
 ANTLR_JAR=antlr-$(ANTLR_VERSION)-complete.jar
 
 
@@ -7,7 +7,7 @@ ANTLR_JAR=antlr-$(ANTLR_VERSION)-complete.jar
 #GITHUB_URL=git@github.com:antlr/$(PROJECT).git
 PROJECT=grammars-v4
 GITHUB_URL=git@github.com:facetoe/$(PROJECT).git
-GRAMMAR_COMMIT=fa8a41dc28a38f7adf39a8a6fc1ab3b308c98c78
+GRAMMAR_COMMIT=42775341e4138ce572e48aaec8671d12c98171e2
 
 $(WORKDIR)/$(ANTLR_JAR):
 	mkdir -p $(WORKDIR)
@@ -28,7 +28,7 @@ test:
 	PYTHONPATH=. pytest-3 tests/
 
 reformat:
-	black --exclude promval/parser promval/ tests/
+	black promval/parser promval/ tests/
 
 flake8:
-	flake8 --exclude  promval/parser/ promval/ tests/
+	flake8 --exclude  promval/parser/,promval/,tests/,build/
