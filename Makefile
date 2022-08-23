@@ -1,5 +1,5 @@
 WORKDIR=build
-ANTLR_VERSION=4.9.3
+ANTLR_VERSION=4.10
 ANTLR_JAR=antlr-$(ANTLR_VERSION)-complete.jar
 
 
@@ -7,7 +7,7 @@ ANTLR_JAR=antlr-$(ANTLR_VERSION)-complete.jar
 #GITHUB_URL=git@github.com:antlr/$(PROJECT).git
 PROJECT=grammars-v4
 GITHUB_URL=git@github.com:facetoe/$(PROJECT).git
-GRAMMAR_COMMIT=fa8a41dc28a38f7adf39a8a6fc1ab3b308c98c78
+GRAMMAR_COMMIT=8c915dc8b85abde9525ebc1087b1ae6458d31615
 
 $(WORKDIR)/$(ANTLR_JAR):
 	mkdir -p $(WORKDIR)
