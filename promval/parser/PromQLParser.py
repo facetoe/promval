@@ -1,4 +1,4 @@
-# Generated from PromQLParser.g4 by ANTLR 4.9.3
+# Generated from PromQLParser.g4 by ANTLR 4.10
 # encoding: utf-8
 from antlr4 import *
 from io import StringIO
@@ -8,145 +8,119 @@ if sys.version_info[1] > 5:
 else:
 	from typing.io import TextIO
 
-
 def serializedATN():
-    with StringIO() as buf:
-        buf.write("\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3-")
-        buf.write("\u0132\4\2\t\2\4\3\t\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7")
-        buf.write("\4\b\t\b\4\t\t\t\4\n\t\n\4\13\t\13\4\f\t\f\4\r\t\r\4\16")
-        buf.write("\t\16\4\17\t\17\4\20\t\20\4\21\t\21\4\22\t\22\4\23\t\23")
-        buf.write("\4\24\t\24\4\25\t\25\4\26\t\26\4\27\t\27\4\30\t\30\4\31")
-        buf.write("\t\31\4\32\t\32\4\33\t\33\4\34\t\34\4\35\t\35\4\36\t\36")
-        buf.write("\4\37\t\37\4 \t \4!\t!\4\"\t\"\4#\t#\4$\t$\3\2\3\2\3\2")
-        buf.write("\3\3\3\3\3\3\3\3\3\3\5\3Q\n\3\3\3\3\3\3\3\3\3\3\3\3\3")
-        buf.write("\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3")
-        buf.write("\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\7\3q\n\3\f")
-        buf.write("\3\16\3t\13\3\3\4\3\4\3\5\3\5\5\5z\n\5\3\6\3\6\5\6~\n")
-        buf.write("\6\3\7\3\7\5\7\u0082\n\7\3\b\3\b\5\b\u0086\n\b\3\b\5\b")
-        buf.write("\u0089\n\b\3\t\3\t\5\t\u008d\n\t\3\n\3\n\5\n\u0091\n\n")
-        buf.write("\3\13\3\13\5\13\u0095\n\13\3\f\3\f\5\f\u0099\n\f\3\r\3")
-        buf.write("\r\3\r\3\16\3\16\3\16\3\16\3\16\3\16\3\16\5\16\u00a5\n")
-        buf.write("\16\3\17\3\17\3\17\3\17\3\20\3\20\3\20\5\20\u00ae\n\20")
-        buf.write("\3\20\5\20\u00b1\n\20\3\20\3\20\3\20\3\20\5\20\u00b7\n")
-        buf.write("\20\3\21\3\21\3\21\3\21\3\22\3\22\3\23\3\23\3\23\7\23")
-        buf.write("\u00c2\n\23\f\23\16\23\u00c5\13\23\3\24\3\24\3\24\3\25")
-        buf.write("\3\25\3\25\3\25\3\25\3\25\3\25\3\25\5\25\u00d2\n\25\3")
-        buf.write("\26\3\26\3\26\3\26\3\26\7\26\u00d9\n\26\f\26\16\26\u00dc")
-        buf.write("\13\26\3\26\3\26\3\27\3\27\5\27\u00e2\n\27\3\30\3\30\3")
-        buf.write("\30\3\30\7\30\u00e8\n\30\f\30\16\30\u00eb\13\30\5\30\u00ed")
-        buf.write("\n\30\3\30\3\30\3\31\3\31\3\31\3\31\3\31\5\31\u00f6\n")
-        buf.write("\31\3\31\3\31\3\31\3\31\3\31\3\31\5\31\u00fe\n\31\5\31")
-        buf.write("\u0100\n\31\3\32\3\32\3\32\3\33\3\33\3\33\3\34\3\34\5")
-        buf.write("\34\u010a\n\34\3\34\3\34\5\34\u010e\n\34\3\35\3\35\3\35")
-        buf.write("\3\36\3\36\3\36\3\37\3\37\3\37\3 \3 \3 \3!\3!\3!\5!\u011f")
-        buf.write("\n!\3\"\3\"\3\"\3\"\7\"\u0125\n\"\f\"\16\"\u0128\13\"")
-        buf.write("\5\"\u012a\n\"\3\"\3\"\3#\3#\3$\3$\3$\2\3\4%\2\4\6\b\n")
-        buf.write("\f\16\20\22\24\26\30\32\34\36 \"$&(*,.\60\62\64\668:<")
-        buf.write(">@BDF\2\n\3\2\5\6\3\2\7\t\3\2\17\24\4\2\13\13\r\r\4\2")
-        buf.write("\r\r\31\31\5\2\16\16\20\20\25\26\4\2\13\r\27 \3\2\3\4")
-        buf.write("\2\u013a\2H\3\2\2\2\4P\3\2\2\2\6u\3\2\2\2\bw\3\2\2\2\n")
-        buf.write("{\3\2\2\2\f\177\3\2\2\2\16\u0083\3\2\2\2\20\u008a\3\2")
-        buf.write("\2\2\22\u008e\3\2\2\2\24\u0092\3\2\2\2\26\u0096\3\2\2")
-        buf.write("\2\30\u009a\3\2\2\2\32\u00a4\3\2\2\2\34\u00a6\3\2\2\2")
-        buf.write("\36\u00b6\3\2\2\2 \u00b8\3\2\2\2\"\u00bc\3\2\2\2$\u00be")
-        buf.write("\3\2\2\2&\u00c6\3\2\2\2(\u00d1\3\2\2\2*\u00d3\3\2\2\2")
-        buf.write(",\u00e1\3\2\2\2.\u00e3\3\2\2\2\60\u00ff\3\2\2\2\62\u0101")
-        buf.write("\3\2\2\2\64\u0104\3\2\2\2\66\u0109\3\2\2\28\u010f\3\2")
-        buf.write("\2\2:\u0112\3\2\2\2<\u0115\3\2\2\2>\u0118\3\2\2\2@\u011e")
-        buf.write("\3\2\2\2B\u0120\3\2\2\2D\u012d\3\2\2\2F\u012f\3\2\2\2")
-        buf.write("HI\5\4\3\2IJ\7\2\2\3J\3\3\2\2\2KL\b\3\1\2LM\5\6\4\2MN")
-        buf.write("\5\4\3\nNQ\3\2\2\2OQ\5\32\16\2PK\3\2\2\2PO\3\2\2\2Qr\3")
-        buf.write("\2\2\2RS\f\f\2\2ST\5\b\5\2TU\5\4\3\fUq\3\2\2\2VW\f\t\2")
-        buf.write("\2WX\5\n\6\2XY\5\4\3\nYq\3\2\2\2Z[\f\b\2\2[\\\5\f\7\2")
-        buf.write("\\]\5\4\3\t]q\3\2\2\2^_\f\7\2\2_`\5\16\b\2`a\5\4\3\ba")
-        buf.write("q\3\2\2\2bc\f\6\2\2cd\5\20\t\2de\5\4\3\7eq\3\2\2\2fg\f")
-        buf.write("\5\2\2gh\5\22\n\2hi\5\4\3\6iq\3\2\2\2jk\f\4\2\2kl\5\24")
-        buf.write("\13\2lm\5\4\3\5mq\3\2\2\2no\f\13\2\2oq\5\26\f\2pR\3\2")
-        buf.write("\2\2pV\3\2\2\2pZ\3\2\2\2p^\3\2\2\2pb\3\2\2\2pf\3\2\2\2")
-        buf.write("pj\3\2\2\2pn\3\2\2\2qt\3\2\2\2rp\3\2\2\2rs\3\2\2\2s\5")
-        buf.write("\3\2\2\2tr\3\2\2\2uv\t\2\2\2v\7\3\2\2\2wy\7\n\2\2xz\5")
-        buf.write("\66\34\2yx\3\2\2\2yz\3\2\2\2z\t\3\2\2\2{}\t\3\2\2|~\5")
-        buf.write("\66\34\2}|\3\2\2\2}~\3\2\2\2~\13\3\2\2\2\177\u0081\t\2")
-        buf.write("\2\2\u0080\u0082\5\66\34\2\u0081\u0080\3\2\2\2\u0081\u0082")
-        buf.write("\3\2\2\2\u0082\r\3\2\2\2\u0083\u0085\t\4\2\2\u0084\u0086")
-        buf.write("\7\36\2\2\u0085\u0084\3\2\2\2\u0085\u0086\3\2\2\2\u0086")
-        buf.write("\u0088\3\2\2\2\u0087\u0089\5\66\34\2\u0088\u0087\3\2\2")
-        buf.write("\2\u0088\u0089\3\2\2\2\u0089\17\3\2\2\2\u008a\u008c\t")
-        buf.write("\5\2\2\u008b\u008d\5\66\34\2\u008c\u008b\3\2\2\2\u008c")
-        buf.write("\u008d\3\2\2\2\u008d\21\3\2\2\2\u008e\u0090\7\f\2\2\u008f")
-        buf.write("\u0091\5\66\34\2\u0090\u008f\3\2\2\2\u0090\u0091\3\2\2")
-        buf.write("\2\u0091\23\3\2\2\2\u0092\u0094\t\6\2\2\u0093\u0095\5")
-        buf.write("\66\34\2\u0094\u0093\3\2\2\2\u0094\u0095\3\2\2\2\u0095")
-        buf.write("\25\3\2\2\2\u0096\u0098\7(\2\2\u0097\u0099\5\30\r\2\u0098")
-        buf.write("\u0097\3\2\2\2\u0098\u0099\3\2\2\2\u0099\27\3\2\2\2\u009a")
-        buf.write("\u009b\7\35\2\2\u009b\u009c\7*\2\2\u009c\31\3\2\2\2\u009d")
-        buf.write("\u00a5\5*\26\2\u009e\u00a5\5\60\31\2\u009f\u00a5\5\36")
-        buf.write("\20\2\u00a0\u00a5\5&\24\2\u00a1\u00a5\5(\25\2\u00a2\u00a5")
-        buf.write("\5F$\2\u00a3\u00a5\5\34\17\2\u00a4\u009d\3\2\2\2\u00a4")
-        buf.write("\u009e\3\2\2\2\u00a4\u009f\3\2\2\2\u00a4\u00a0\3\2\2\2")
-        buf.write("\u00a4\u00a1\3\2\2\2\u00a4\u00a2\3\2\2\2\u00a4\u00a3\3")
-        buf.write("\2\2\2\u00a5\33\3\2\2\2\u00a6\u00a7\7#\2\2\u00a7\u00a8")
-        buf.write("\5\4\3\2\u00a8\u00a9\7$\2\2\u00a9\35\3\2\2\2\u00aa\u00b0")
-        buf.write("\7+\2\2\u00ab\u00ad\7!\2\2\u00ac\u00ae\5$\23\2\u00ad\u00ac")
-        buf.write("\3\2\2\2\u00ad\u00ae\3\2\2\2\u00ae\u00af\3\2\2\2\u00af")
-        buf.write("\u00b1\7\"\2\2\u00b0\u00ab\3\2\2\2\u00b0\u00b1\3\2\2\2")
-        buf.write("\u00b1\u00b7\3\2\2\2\u00b2\u00b3\7!\2\2\u00b3\u00b4\5")
-        buf.write("$\23\2\u00b4\u00b5\7\"\2\2\u00b5\u00b7\3\2\2\2\u00b6\u00aa")
-        buf.write("\3\2\2\2\u00b6\u00b2\3\2\2\2\u00b7\37\3\2\2\2\u00b8\u00b9")
-        buf.write("\5@!\2\u00b9\u00ba\5\"\22\2\u00ba\u00bb\7\4\2\2\u00bb")
-        buf.write("!\3\2\2\2\u00bc\u00bd\t\7\2\2\u00bd#\3\2\2\2\u00be\u00c3")
-        buf.write("\5 \21\2\u00bf\u00c0\7\'\2\2\u00c0\u00c2\5 \21\2\u00c1")
-        buf.write("\u00bf\3\2\2\2\u00c2\u00c5\3\2\2\2\u00c3\u00c1\3\2\2\2")
-        buf.write("\u00c3\u00c4\3\2\2\2\u00c4%\3\2\2\2\u00c5\u00c3\3\2\2")
-        buf.write("\2\u00c6\u00c7\5\36\20\2\u00c7\u00c8\7)\2\2\u00c8\'\3")
-        buf.write("\2\2\2\u00c9\u00ca\5\36\20\2\u00ca\u00cb\7\35\2\2\u00cb")
-        buf.write("\u00cc\7*\2\2\u00cc\u00d2\3\2\2\2\u00cd\u00ce\5&\24\2")
-        buf.write("\u00ce\u00cf\7\35\2\2\u00cf\u00d0\7*\2\2\u00d0\u00d2\3")
-        buf.write("\2\2\2\u00d1\u00c9\3\2\2\2\u00d1\u00cd\3\2\2\2\u00d2)")
-        buf.write("\3\2\2\2\u00d3\u00d4\7 \2\2\u00d4\u00d5\7#\2\2\u00d5\u00da")
-        buf.write("\5,\27\2\u00d6\u00d7\7\'\2\2\u00d7\u00d9\5,\27\2\u00d8")
-        buf.write("\u00d6\3\2\2\2\u00d9\u00dc\3\2\2\2\u00da\u00d8\3\2\2\2")
-        buf.write("\u00da\u00db\3\2\2\2\u00db\u00dd\3\2\2\2\u00dc\u00da\3")
-        buf.write("\2\2\2\u00dd\u00de\7$\2\2\u00de+\3\2\2\2\u00df\u00e2\5")
-        buf.write("F$\2\u00e0\u00e2\5\4\3\2\u00e1\u00df\3\2\2\2\u00e1\u00e0")
-        buf.write("\3\2\2\2\u00e2-\3\2\2\2\u00e3\u00ec\7#\2\2\u00e4\u00e9")
-        buf.write("\5,\27\2\u00e5\u00e6\7\'\2\2\u00e6\u00e8\5,\27\2\u00e7")
-        buf.write("\u00e5\3\2\2\2\u00e8\u00eb\3\2\2\2\u00e9\u00e7\3\2\2\2")
-        buf.write("\u00e9\u00ea\3\2\2\2\u00ea\u00ed\3\2\2\2\u00eb\u00e9\3")
-        buf.write("\2\2\2\u00ec\u00e4\3\2\2\2\u00ec\u00ed\3\2\2\2\u00ed\u00ee")
-        buf.write("\3\2\2\2\u00ee\u00ef\7$\2\2\u00ef/\3\2\2\2\u00f0\u00f1")
-        buf.write("\7\37\2\2\u00f1\u0100\5.\30\2\u00f2\u00f5\7\37\2\2\u00f3")
-        buf.write("\u00f6\5\62\32\2\u00f4\u00f6\5\64\33\2\u00f5\u00f3\3\2")
-        buf.write("\2\2\u00f5\u00f4\3\2\2\2\u00f6\u00f7\3\2\2\2\u00f7\u00f8")
-        buf.write("\5.\30\2\u00f8\u0100\3\2\2\2\u00f9\u00fa\7\37\2\2\u00fa")
-        buf.write("\u00fd\5.\30\2\u00fb\u00fe\5\62\32\2\u00fc\u00fe\5\64")
-        buf.write("\33\2\u00fd\u00fb\3\2\2\2\u00fd\u00fc\3\2\2\2\u00fe\u0100")
-        buf.write("\3\2\2\2\u00ff\u00f0\3\2\2\2\u00ff\u00f2\3\2\2\2\u00ff")
-        buf.write("\u00f9\3\2\2\2\u0100\61\3\2\2\2\u0101\u0102\7\27\2\2\u0102")
-        buf.write("\u0103\5B\"\2\u0103\63\3\2\2\2\u0104\u0105\7\30\2\2\u0105")
-        buf.write("\u0106\5B\"\2\u0106\65\3\2\2\2\u0107\u010a\58\35\2\u0108")
-        buf.write("\u010a\5:\36\2\u0109\u0107\3\2\2\2\u0109\u0108\3\2\2\2")
-        buf.write("\u010a\u010d\3\2\2\2\u010b\u010e\5<\37\2\u010c\u010e\5")
-        buf.write("> \2\u010d\u010b\3\2\2\2\u010d\u010c\3\2\2\2\u010d\u010e")
-        buf.write("\3\2\2\2\u010e\67\3\2\2\2\u010f\u0110\7\31\2\2\u0110\u0111")
-        buf.write("\5B\"\2\u01119\3\2\2\2\u0112\u0113\7\32\2\2\u0113\u0114")
-        buf.write("\5B\"\2\u0114;\3\2\2\2\u0115\u0116\7\33\2\2\u0116\u0117")
-        buf.write("\5B\"\2\u0117=\3\2\2\2\u0118\u0119\7\34\2\2\u0119\u011a")
-        buf.write("\5B\"\2\u011a?\3\2\2\2\u011b\u011f\5D#\2\u011c\u011f\7")
-        buf.write("+\2\2\u011d\u011f\7,\2\2\u011e\u011b\3\2\2\2\u011e\u011c")
-        buf.write("\3\2\2\2\u011e\u011d\3\2\2\2\u011fA\3\2\2\2\u0120\u0129")
-        buf.write("\7#\2\2\u0121\u0126\5@!\2\u0122\u0123\7\'\2\2\u0123\u0125")
-        buf.write("\5@!\2\u0124\u0122\3\2\2\2\u0125\u0128\3\2\2\2\u0126\u0124")
-        buf.write("\3\2\2\2\u0126\u0127\3\2\2\2\u0127\u012a\3\2\2\2\u0128")
-        buf.write("\u0126\3\2\2\2\u0129\u0121\3\2\2\2\u0129\u012a\3\2\2\2")
-        buf.write("\u012a\u012b\3\2\2\2\u012b\u012c\7$\2\2\u012cC\3\2\2\2")
-        buf.write("\u012d\u012e\t\b\2\2\u012eE\3\2\2\2\u012f\u0130\t\t\2")
-        buf.write("\2\u0130G\3\2\2\2 Ppry}\u0081\u0085\u0088\u008c\u0090")
-        buf.write("\u0094\u0098\u00a4\u00ad\u00b0\u00b6\u00c3\u00d1\u00da")
-        buf.write("\u00e1\u00e9\u00ec\u00f5\u00fd\u00ff\u0109\u010d\u011e")
-        buf.write("\u0126\u0129")
-        return buf.getvalue()
-
+    return [
+        4,1,43,308,2,0,7,0,2,1,7,1,2,2,7,2,2,3,7,3,2,4,7,4,2,5,7,5,2,6,7,
+        6,2,7,7,7,2,8,7,8,2,9,7,9,2,10,7,10,2,11,7,11,2,12,7,12,2,13,7,13,
+        2,14,7,14,2,15,7,15,2,16,7,16,2,17,7,17,2,18,7,18,2,19,7,19,2,20,
+        7,20,2,21,7,21,2,22,7,22,2,23,7,23,2,24,7,24,2,25,7,25,2,26,7,26,
+        2,27,7,27,2,28,7,28,2,29,7,29,2,30,7,30,2,31,7,31,2,32,7,32,2,33,
+        7,33,2,34,7,34,1,0,1,0,1,0,1,1,1,1,1,1,1,1,1,1,3,1,79,8,1,1,1,1,
+        1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+        1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,5,1,111,8,1,10,
+        1,12,1,114,9,1,1,2,1,2,1,3,1,3,3,3,120,8,3,1,4,1,4,3,4,124,8,4,1,
+        5,1,5,3,5,128,8,5,1,6,1,6,3,6,132,8,6,1,6,3,6,135,8,6,1,7,1,7,3,
+        7,139,8,7,1,8,1,8,3,8,143,8,8,1,9,1,9,3,9,147,8,9,1,10,1,10,3,10,
+        151,8,10,1,11,1,11,1,11,1,12,1,12,1,12,1,12,1,12,1,12,1,12,3,12,
+        163,8,12,1,13,1,13,1,13,1,13,1,14,1,14,1,14,3,14,172,8,14,1,14,3,
+        14,175,8,14,1,14,1,14,1,14,1,14,3,14,181,8,14,1,15,1,15,1,15,1,15,
+        1,16,1,16,1,17,1,17,1,17,5,17,192,8,17,10,17,12,17,195,9,17,1,18,
+        1,18,1,18,1,19,1,19,1,19,1,19,1,19,1,19,1,19,1,19,3,19,208,8,19,
+        1,20,1,20,1,20,1,20,1,20,5,20,215,8,20,10,20,12,20,218,9,20,3,20,
+        220,8,20,1,20,1,20,1,21,1,21,3,21,226,8,21,1,22,1,22,1,22,1,22,5,
+        22,232,8,22,10,22,12,22,235,9,22,3,22,237,8,22,1,22,1,22,1,23,1,
+        23,1,23,1,23,1,23,3,23,246,8,23,1,23,1,23,1,23,1,23,1,23,1,23,3,
+        23,254,8,23,3,23,256,8,23,1,24,1,24,1,24,1,25,1,25,1,25,1,26,1,26,
+        3,26,266,8,26,1,26,1,26,3,26,270,8,26,1,27,1,27,1,27,1,28,1,28,1,
+        28,1,29,1,29,3,29,280,8,29,1,30,1,30,3,30,284,8,30,1,31,1,31,1,31,
+        3,31,289,8,31,1,32,1,32,1,32,1,32,5,32,295,8,32,10,32,12,32,298,
+        9,32,3,32,300,8,32,1,32,1,32,1,33,1,33,1,34,1,34,1,34,0,1,2,35,0,
+        2,4,6,8,10,12,14,16,18,20,22,24,26,28,30,32,34,36,38,40,42,44,46,
+        48,50,52,54,56,58,60,62,64,66,68,0,8,1,0,3,4,1,0,5,7,1,0,13,18,2,
+        0,9,9,11,11,2,0,11,11,23,23,3,0,12,12,14,14,19,20,2,0,9,11,21,30,
+        1,0,1,2,319,0,70,1,0,0,0,2,78,1,0,0,0,4,115,1,0,0,0,6,117,1,0,0,
+        0,8,121,1,0,0,0,10,125,1,0,0,0,12,129,1,0,0,0,14,136,1,0,0,0,16,
+        140,1,0,0,0,18,144,1,0,0,0,20,148,1,0,0,0,22,152,1,0,0,0,24,162,
+        1,0,0,0,26,164,1,0,0,0,28,180,1,0,0,0,30,182,1,0,0,0,32,186,1,0,
+        0,0,34,188,1,0,0,0,36,196,1,0,0,0,38,207,1,0,0,0,40,209,1,0,0,0,
+        42,225,1,0,0,0,44,227,1,0,0,0,46,255,1,0,0,0,48,257,1,0,0,0,50,260,
+        1,0,0,0,52,265,1,0,0,0,54,271,1,0,0,0,56,274,1,0,0,0,58,277,1,0,
+        0,0,60,281,1,0,0,0,62,288,1,0,0,0,64,290,1,0,0,0,66,303,1,0,0,0,
+        68,305,1,0,0,0,70,71,3,2,1,0,71,72,5,0,0,1,72,1,1,0,0,0,73,74,6,
+        1,-1,0,74,75,3,4,2,0,75,76,3,2,1,8,76,79,1,0,0,0,77,79,3,24,12,0,
+        78,73,1,0,0,0,78,77,1,0,0,0,79,112,1,0,0,0,80,81,10,10,0,0,81,82,
+        3,6,3,0,82,83,3,2,1,10,83,111,1,0,0,0,84,85,10,7,0,0,85,86,3,8,4,
+        0,86,87,3,2,1,8,87,111,1,0,0,0,88,89,10,6,0,0,89,90,3,10,5,0,90,
+        91,3,2,1,7,91,111,1,0,0,0,92,93,10,5,0,0,93,94,3,12,6,0,94,95,3,
+        2,1,6,95,111,1,0,0,0,96,97,10,4,0,0,97,98,3,14,7,0,98,99,3,2,1,5,
+        99,111,1,0,0,0,100,101,10,3,0,0,101,102,3,16,8,0,102,103,3,2,1,4,
+        103,111,1,0,0,0,104,105,10,2,0,0,105,106,3,18,9,0,106,107,3,2,1,
+        3,107,111,1,0,0,0,108,109,10,9,0,0,109,111,3,20,10,0,110,80,1,0,
+        0,0,110,84,1,0,0,0,110,88,1,0,0,0,110,92,1,0,0,0,110,96,1,0,0,0,
+        110,100,1,0,0,0,110,104,1,0,0,0,110,108,1,0,0,0,111,114,1,0,0,0,
+        112,110,1,0,0,0,112,113,1,0,0,0,113,3,1,0,0,0,114,112,1,0,0,0,115,
+        116,7,0,0,0,116,5,1,0,0,0,117,119,5,8,0,0,118,120,3,52,26,0,119,
+        118,1,0,0,0,119,120,1,0,0,0,120,7,1,0,0,0,121,123,7,1,0,0,122,124,
+        3,52,26,0,123,122,1,0,0,0,123,124,1,0,0,0,124,9,1,0,0,0,125,127,
+        7,0,0,0,126,128,3,52,26,0,127,126,1,0,0,0,127,128,1,0,0,0,128,11,
+        1,0,0,0,129,131,7,2,0,0,130,132,5,28,0,0,131,130,1,0,0,0,131,132,
+        1,0,0,0,132,134,1,0,0,0,133,135,3,52,26,0,134,133,1,0,0,0,134,135,
+        1,0,0,0,135,13,1,0,0,0,136,138,7,3,0,0,137,139,3,52,26,0,138,137,
+        1,0,0,0,138,139,1,0,0,0,139,15,1,0,0,0,140,142,5,10,0,0,141,143,
+        3,52,26,0,142,141,1,0,0,0,142,143,1,0,0,0,143,17,1,0,0,0,144,146,
+        7,4,0,0,145,147,3,52,26,0,146,145,1,0,0,0,146,147,1,0,0,0,147,19,
+        1,0,0,0,148,150,5,38,0,0,149,151,3,22,11,0,150,149,1,0,0,0,150,151,
+        1,0,0,0,151,21,1,0,0,0,152,153,5,27,0,0,153,154,5,40,0,0,154,23,
+        1,0,0,0,155,163,3,40,20,0,156,163,3,46,23,0,157,163,3,28,14,0,158,
+        163,3,36,18,0,159,163,3,38,19,0,160,163,3,68,34,0,161,163,3,26,13,
+        0,162,155,1,0,0,0,162,156,1,0,0,0,162,157,1,0,0,0,162,158,1,0,0,
+        0,162,159,1,0,0,0,162,160,1,0,0,0,162,161,1,0,0,0,163,25,1,0,0,0,
+        164,165,5,33,0,0,165,166,3,2,1,0,166,167,5,34,0,0,167,27,1,0,0,0,
+        168,174,5,41,0,0,169,171,5,31,0,0,170,172,3,34,17,0,171,170,1,0,
+        0,0,171,172,1,0,0,0,172,173,1,0,0,0,173,175,5,32,0,0,174,169,1,0,
+        0,0,174,175,1,0,0,0,175,181,1,0,0,0,176,177,5,31,0,0,177,178,3,34,
+        17,0,178,179,5,32,0,0,179,181,1,0,0,0,180,168,1,0,0,0,180,176,1,
+        0,0,0,181,29,1,0,0,0,182,183,3,62,31,0,183,184,3,32,16,0,184,185,
+        5,2,0,0,185,31,1,0,0,0,186,187,7,5,0,0,187,33,1,0,0,0,188,193,3,
+        30,15,0,189,190,5,37,0,0,190,192,3,30,15,0,191,189,1,0,0,0,192,195,
+        1,0,0,0,193,191,1,0,0,0,193,194,1,0,0,0,194,35,1,0,0,0,195,193,1,
+        0,0,0,196,197,3,28,14,0,197,198,5,39,0,0,198,37,1,0,0,0,199,200,
+        3,28,14,0,200,201,5,27,0,0,201,202,5,40,0,0,202,208,1,0,0,0,203,
+        204,3,36,18,0,204,205,5,27,0,0,205,206,5,40,0,0,206,208,1,0,0,0,
+        207,199,1,0,0,0,207,203,1,0,0,0,208,39,1,0,0,0,209,210,5,30,0,0,
+        210,219,5,33,0,0,211,216,3,42,21,0,212,213,5,37,0,0,213,215,3,42,
+        21,0,214,212,1,0,0,0,215,218,1,0,0,0,216,214,1,0,0,0,216,217,1,0,
+        0,0,217,220,1,0,0,0,218,216,1,0,0,0,219,211,1,0,0,0,219,220,1,0,
+        0,0,220,221,1,0,0,0,221,222,5,34,0,0,222,41,1,0,0,0,223,226,3,68,
+        34,0,224,226,3,2,1,0,225,223,1,0,0,0,225,224,1,0,0,0,226,43,1,0,
+        0,0,227,236,5,33,0,0,228,233,3,42,21,0,229,230,5,37,0,0,230,232,
+        3,42,21,0,231,229,1,0,0,0,232,235,1,0,0,0,233,231,1,0,0,0,233,234,
+        1,0,0,0,234,237,1,0,0,0,235,233,1,0,0,0,236,228,1,0,0,0,236,237,
+        1,0,0,0,237,238,1,0,0,0,238,239,5,34,0,0,239,45,1,0,0,0,240,241,
+        5,29,0,0,241,256,3,44,22,0,242,245,5,29,0,0,243,246,3,48,24,0,244,
+        246,3,50,25,0,245,243,1,0,0,0,245,244,1,0,0,0,246,247,1,0,0,0,247,
+        248,3,44,22,0,248,256,1,0,0,0,249,250,5,29,0,0,250,253,3,44,22,0,
+        251,254,3,48,24,0,252,254,3,50,25,0,253,251,1,0,0,0,253,252,1,0,
+        0,0,254,256,1,0,0,0,255,240,1,0,0,0,255,242,1,0,0,0,255,249,1,0,
+        0,0,256,47,1,0,0,0,257,258,5,21,0,0,258,259,3,64,32,0,259,49,1,0,
+        0,0,260,261,5,22,0,0,261,262,3,64,32,0,262,51,1,0,0,0,263,266,3,
+        54,27,0,264,266,3,56,28,0,265,263,1,0,0,0,265,264,1,0,0,0,266,269,
+        1,0,0,0,267,270,3,58,29,0,268,270,3,60,30,0,269,267,1,0,0,0,269,
+        268,1,0,0,0,269,270,1,0,0,0,270,53,1,0,0,0,271,272,5,23,0,0,272,
+        273,3,64,32,0,273,55,1,0,0,0,274,275,5,24,0,0,275,276,3,64,32,0,
+        276,57,1,0,0,0,277,279,5,25,0,0,278,280,3,64,32,0,279,278,1,0,0,
+        0,279,280,1,0,0,0,280,59,1,0,0,0,281,283,5,26,0,0,282,284,3,64,32,
+        0,283,282,1,0,0,0,283,284,1,0,0,0,284,61,1,0,0,0,285,289,3,66,33,
+        0,286,289,5,41,0,0,287,289,5,42,0,0,288,285,1,0,0,0,288,286,1,0,
+        0,0,288,287,1,0,0,0,289,63,1,0,0,0,290,299,5,33,0,0,291,296,3,62,
+        31,0,292,293,5,37,0,0,293,295,3,62,31,0,294,292,1,0,0,0,295,298,
+        1,0,0,0,296,294,1,0,0,0,296,297,1,0,0,0,297,300,1,0,0,0,298,296,
+        1,0,0,0,299,291,1,0,0,0,299,300,1,0,0,0,300,301,1,0,0,0,301,302,
+        5,34,0,0,302,65,1,0,0,0,303,304,7,6,0,0,304,67,1,0,0,0,305,306,7,
+        7,0,0,306,69,1,0,0,0,33,78,110,112,119,123,127,131,134,138,142,146,
+        150,162,171,174,180,193,207,216,219,225,233,236,245,253,255,265,
+        269,279,283,288,296,299
+    ]
 
 class PromQLParser ( Parser ):
 
@@ -268,7 +242,7 @@ class PromQLParser ( Parser ):
 
     def __init__(self, input:TokenStream, output:TextIO = sys.stdout):
         super().__init__(input, output)
-        self.checkVersion("4.9.3")
+        self.checkVersion("4.10")
         self._interp = ParserATNSimulator(self, self.atn, self.decisionsToDFA, self.sharedContextCache)
         self._predicates = None
 
@@ -1809,15 +1783,15 @@ class PromQLParser ( Parser ):
         def LEFT_PAREN(self):
             return self.getToken(PromQLParser.LEFT_PAREN, 0)
 
+        def RIGHT_PAREN(self):
+            return self.getToken(PromQLParser.RIGHT_PAREN, 0)
+
         def parameter(self, i:int=None):
             if i is None:
                 return self.getTypedRuleContexts(PromQLParser.ParameterContext)
             else:
                 return self.getTypedRuleContext(PromQLParser.ParameterContext,i)
 
-
-        def RIGHT_PAREN(self):
-            return self.getToken(PromQLParser.RIGHT_PAREN, 0)
 
         def COMMA(self, i:int=None):
             if i is None:
@@ -1856,21 +1830,27 @@ class PromQLParser ( Parser ):
             self.match(PromQLParser.FUNCTION)
             self.state = 210
             self.match(PromQLParser.LEFT_PAREN)
-            self.state = 211
-            self.parameter()
-            self.state = 216
+            self.state = 219
             self._errHandler.sync(self)
             _la = self._input.LA(1)
-            while _la==PromQLParser.COMMA:
-                self.state = 212
-                self.match(PromQLParser.COMMA)
-                self.state = 213
+            if (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << PromQLParser.NUMBER) | (1 << PromQLParser.STRING) | (1 << PromQLParser.ADD) | (1 << PromQLParser.SUB) | (1 << PromQLParser.AGGREGATION_OPERATOR) | (1 << PromQLParser.FUNCTION) | (1 << PromQLParser.LEFT_BRACE) | (1 << PromQLParser.LEFT_PAREN) | (1 << PromQLParser.METRIC_NAME))) != 0):
+                self.state = 211
                 self.parameter()
-                self.state = 218
+                self.state = 216
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
+                while _la==PromQLParser.COMMA:
+                    self.state = 212
+                    self.match(PromQLParser.COMMA)
+                    self.state = 213
+                    self.parameter()
+                    self.state = 218
+                    self._errHandler.sync(self)
+                    _la = self._input.LA(1)
 
-            self.state = 219
+
+
+            self.state = 221
             self.match(PromQLParser.RIGHT_PAREN)
         except RecognitionException as re:
             localctx.exception = re
@@ -1921,18 +1901,18 @@ class PromQLParser ( Parser ):
         localctx = PromQLParser.ParameterContext(self, self._ctx, self.state)
         self.enterRule(localctx, 42, self.RULE_parameter)
         try:
-            self.state = 223
+            self.state = 225
             self._errHandler.sync(self)
-            la_ = self._interp.adaptivePredict(self._input,19,self._ctx)
+            la_ = self._interp.adaptivePredict(self._input,20,self._ctx)
             if la_ == 1:
                 self.enterOuterAlt(localctx, 1)
-                self.state = 221
+                self.state = 223
                 self.literal()
                 pass
 
             elif la_ == 2:
                 self.enterOuterAlt(localctx, 2)
-                self.state = 222
+                self.state = 224
                 self.vectorOperation(0)
                 pass
 
@@ -1999,29 +1979,29 @@ class PromQLParser ( Parser ):
         self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 225
+            self.state = 227
             self.match(PromQLParser.LEFT_PAREN)
-            self.state = 234
+            self.state = 236
             self._errHandler.sync(self)
             _la = self._input.LA(1)
             if (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << PromQLParser.NUMBER) | (1 << PromQLParser.STRING) | (1 << PromQLParser.ADD) | (1 << PromQLParser.SUB) | (1 << PromQLParser.AGGREGATION_OPERATOR) | (1 << PromQLParser.FUNCTION) | (1 << PromQLParser.LEFT_BRACE) | (1 << PromQLParser.LEFT_PAREN) | (1 << PromQLParser.METRIC_NAME))) != 0):
-                self.state = 226
+                self.state = 228
                 self.parameter()
-                self.state = 231
+                self.state = 233
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
                 while _la==PromQLParser.COMMA:
-                    self.state = 227
+                    self.state = 229
                     self.match(PromQLParser.COMMA)
-                    self.state = 228
+                    self.state = 230
                     self.parameter()
-                    self.state = 233
+                    self.state = 235
                     self._errHandler.sync(self)
                     _la = self._input.LA(1)
 
 
 
-            self.state = 236
+            self.state = 238
             self.match(PromQLParser.RIGHT_PAREN)
         except RecognitionException as re:
             localctx.exception = re
@@ -2079,54 +2059,54 @@ class PromQLParser ( Parser ):
         localctx = PromQLParser.AggregationContext(self, self._ctx, self.state)
         self.enterRule(localctx, 46, self.RULE_aggregation)
         try:
-            self.state = 253
+            self.state = 255
             self._errHandler.sync(self)
-            la_ = self._interp.adaptivePredict(self._input,24,self._ctx)
+            la_ = self._interp.adaptivePredict(self._input,25,self._ctx)
             if la_ == 1:
                 self.enterOuterAlt(localctx, 1)
-                self.state = 238
+                self.state = 240
                 self.match(PromQLParser.AGGREGATION_OPERATOR)
-                self.state = 239
+                self.state = 241
                 self.parameterList()
                 pass
 
             elif la_ == 2:
                 self.enterOuterAlt(localctx, 2)
-                self.state = 240
+                self.state = 242
                 self.match(PromQLParser.AGGREGATION_OPERATOR)
-                self.state = 243
+                self.state = 245
                 self._errHandler.sync(self)
                 token = self._input.LA(1)
                 if token in [PromQLParser.BY]:
-                    self.state = 241
+                    self.state = 243
                     self.by()
                     pass
                 elif token in [PromQLParser.WITHOUT]:
-                    self.state = 242
+                    self.state = 244
                     self.without()
                     pass
                 else:
                     raise NoViableAltException(self)
 
-                self.state = 245
+                self.state = 247
                 self.parameterList()
                 pass
 
             elif la_ == 3:
                 self.enterOuterAlt(localctx, 3)
-                self.state = 247
+                self.state = 249
                 self.match(PromQLParser.AGGREGATION_OPERATOR)
-                self.state = 248
+                self.state = 250
                 self.parameterList()
-                self.state = 251
+                self.state = 253
                 self._errHandler.sync(self)
                 token = self._input.LA(1)
                 if token in [PromQLParser.BY]:
-                    self.state = 249
+                    self.state = 251
                     self.by()
                     pass
                 elif token in [PromQLParser.WITHOUT]:
-                    self.state = 250
+                    self.state = 252
                     self.without()
                     pass
                 else:
@@ -2184,9 +2164,9 @@ class PromQLParser ( Parser ):
         self.enterRule(localctx, 48, self.RULE_by)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 255
+            self.state = 257
             self.match(PromQLParser.BY)
-            self.state = 256
+            self.state = 258
             self.labelNameList()
         except RecognitionException as re:
             localctx.exception = re
@@ -2237,9 +2217,9 @@ class PromQLParser ( Parser ):
         self.enterRule(localctx, 50, self.RULE_without)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 258
+            self.state = 260
             self.match(PromQLParser.WITHOUT)
-            self.state = 259
+            self.state = 261
             self.labelNameList()
         except RecognitionException as re:
             localctx.exception = re
@@ -2299,29 +2279,29 @@ class PromQLParser ( Parser ):
         self.enterRule(localctx, 52, self.RULE_grouping)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 263
+            self.state = 265
             self._errHandler.sync(self)
             token = self._input.LA(1)
             if token in [PromQLParser.ON]:
-                self.state = 261
+                self.state = 263
                 self.on_()
                 pass
             elif token in [PromQLParser.IGNORING]:
-                self.state = 262
+                self.state = 264
                 self.ignoring()
                 pass
             else:
                 raise NoViableAltException(self)
 
-            self.state = 267
+            self.state = 269
             self._errHandler.sync(self)
             token = self._input.LA(1)
             if token in [PromQLParser.GROUP_LEFT]:
-                self.state = 265
+                self.state = 267
                 self.groupLeft()
                 pass
             elif token in [PromQLParser.GROUP_RIGHT]:
-                self.state = 266
+                self.state = 268
                 self.groupRight()
                 pass
             elif token in [PromQLParser.NUMBER, PromQLParser.STRING, PromQLParser.ADD, PromQLParser.SUB, PromQLParser.AGGREGATION_OPERATOR, PromQLParser.FUNCTION, PromQLParser.LEFT_BRACE, PromQLParser.LEFT_PAREN, PromQLParser.METRIC_NAME]:
@@ -2377,9 +2357,9 @@ class PromQLParser ( Parser ):
         self.enterRule(localctx, 54, self.RULE_on_)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 269
+            self.state = 271
             self.match(PromQLParser.ON)
-            self.state = 270
+            self.state = 272
             self.labelNameList()
         except RecognitionException as re:
             localctx.exception = re
@@ -2430,9 +2410,9 @@ class PromQLParser ( Parser ):
         self.enterRule(localctx, 56, self.RULE_ignoring)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 272
+            self.state = 274
             self.match(PromQLParser.IGNORING)
-            self.state = 273
+            self.state = 275
             self.labelNameList()
         except RecognitionException as re:
             localctx.exception = re
@@ -2483,10 +2463,16 @@ class PromQLParser ( Parser ):
         self.enterRule(localctx, 58, self.RULE_groupLeft)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 275
+            self.state = 277
             self.match(PromQLParser.GROUP_LEFT)
-            self.state = 276
-            self.labelNameList()
+            self.state = 279
+            self._errHandler.sync(self)
+            la_ = self._interp.adaptivePredict(self._input,28,self._ctx)
+            if la_ == 1:
+                self.state = 278
+                self.labelNameList()
+
+
         except RecognitionException as re:
             localctx.exception = re
             self._errHandler.reportError(self, re)
@@ -2536,10 +2522,16 @@ class PromQLParser ( Parser ):
         self.enterRule(localctx, 60, self.RULE_groupRight)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 278
+            self.state = 281
             self.match(PromQLParser.GROUP_RIGHT)
-            self.state = 279
-            self.labelNameList()
+            self.state = 283
+            self._errHandler.sync(self)
+            la_ = self._interp.adaptivePredict(self._input,29,self._ctx)
+            if la_ == 1:
+                self.state = 282
+                self.labelNameList()
+
+
         except RecognitionException as re:
             localctx.exception = re
             self._errHandler.reportError(self, re)
@@ -2591,22 +2583,22 @@ class PromQLParser ( Parser ):
         localctx = PromQLParser.LabelNameContext(self, self._ctx, self.state)
         self.enterRule(localctx, 62, self.RULE_labelName)
         try:
-            self.state = 284
+            self.state = 288
             self._errHandler.sync(self)
             token = self._input.LA(1)
             if token in [PromQLParser.AND, PromQLParser.OR, PromQLParser.UNLESS, PromQLParser.BY, PromQLParser.WITHOUT, PromQLParser.ON, PromQLParser.IGNORING, PromQLParser.GROUP_LEFT, PromQLParser.GROUP_RIGHT, PromQLParser.OFFSET, PromQLParser.BOOL, PromQLParser.AGGREGATION_OPERATOR, PromQLParser.FUNCTION]:
                 self.enterOuterAlt(localctx, 1)
-                self.state = 281
+                self.state = 285
                 self.keyword()
                 pass
             elif token in [PromQLParser.METRIC_NAME]:
                 self.enterOuterAlt(localctx, 2)
-                self.state = 282
+                self.state = 286
                 self.match(PromQLParser.METRIC_NAME)
                 pass
             elif token in [PromQLParser.LABEL_NAME]:
                 self.enterOuterAlt(localctx, 3)
-                self.state = 283
+                self.state = 287
                 self.match(PromQLParser.LABEL_NAME)
                 pass
             else:
@@ -2674,29 +2666,29 @@ class PromQLParser ( Parser ):
         self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 286
+            self.state = 290
             self.match(PromQLParser.LEFT_PAREN)
-            self.state = 295
+            self.state = 299
             self._errHandler.sync(self)
             _la = self._input.LA(1)
             if (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << PromQLParser.AND) | (1 << PromQLParser.OR) | (1 << PromQLParser.UNLESS) | (1 << PromQLParser.BY) | (1 << PromQLParser.WITHOUT) | (1 << PromQLParser.ON) | (1 << PromQLParser.IGNORING) | (1 << PromQLParser.GROUP_LEFT) | (1 << PromQLParser.GROUP_RIGHT) | (1 << PromQLParser.OFFSET) | (1 << PromQLParser.BOOL) | (1 << PromQLParser.AGGREGATION_OPERATOR) | (1 << PromQLParser.FUNCTION) | (1 << PromQLParser.METRIC_NAME) | (1 << PromQLParser.LABEL_NAME))) != 0):
-                self.state = 287
+                self.state = 291
                 self.labelName()
-                self.state = 292
+                self.state = 296
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
                 while _la==PromQLParser.COMMA:
-                    self.state = 288
+                    self.state = 292
                     self.match(PromQLParser.COMMA)
-                    self.state = 289
+                    self.state = 293
                     self.labelName()
-                    self.state = 294
+                    self.state = 298
                     self._errHandler.sync(self)
                     _la = self._input.LA(1)
 
 
 
-            self.state = 297
+            self.state = 301
             self.match(PromQLParser.RIGHT_PAREN)
         except RecognitionException as re:
             localctx.exception = re
@@ -2780,7 +2772,7 @@ class PromQLParser ( Parser ):
         self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 299
+            self.state = 303
             _la = self._input.LA(1)
             if not((((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << PromQLParser.AND) | (1 << PromQLParser.OR) | (1 << PromQLParser.UNLESS) | (1 << PromQLParser.BY) | (1 << PromQLParser.WITHOUT) | (1 << PromQLParser.ON) | (1 << PromQLParser.IGNORING) | (1 << PromQLParser.GROUP_LEFT) | (1 << PromQLParser.GROUP_RIGHT) | (1 << PromQLParser.OFFSET) | (1 << PromQLParser.BOOL) | (1 << PromQLParser.AGGREGATION_OPERATOR) | (1 << PromQLParser.FUNCTION))) != 0)):
                 self._errHandler.recoverInline(self)
@@ -2836,7 +2828,7 @@ class PromQLParser ( Parser ):
         self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 301
+            self.state = 305
             _la = self._input.LA(1)
             if not(_la==PromQLParser.NUMBER or _la==PromQLParser.STRING):
                 self._errHandler.recoverInline(self)
