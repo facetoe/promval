@@ -4,6 +4,8 @@ from promval.error import ValidationError
 from promval.validator import (
     AggregationGroupValidator,
     AggregationLabelValueValidator,
+    AggregationFunctionValidator,
+    FunctionValidator,
 )
 
 
@@ -83,5 +85,33 @@ def test_label_value_validator_multiple_labels():
         avg by (first, second)(foo_metric{very=~'important'} / foo_metric{very=~'important'}) > 8
     """
     validator = AggregationLabelValueValidator(label_value="important")
+    with pytest.raises(ValidationError):
+        validator.validate(expr)
+
+
+def test_agg_function_validator():
+    expr = """
+        avg by (group, name)
+        (
+            absent_over_time(
+                label_replace(some_metric, "name", "$1", "othername", "(.*)")[6h:]
+            )
+        ) > 5
+    """
+    validator = AggregationFunctionValidator(blacklisted={"avg"})
+    with pytest.raises(ValidationError):
+        validator.validate(expr)
+
+
+def test_function_validator():
+    expr = """
+        avg by (group, name)
+        (
+            absent_over_time(
+                label_replace(some_metric, "name", "$1", "othername", "(.*)")[6h:]
+            )
+        ) > 5
+    """
+    validator = FunctionValidator(blacklisted={"absent", "absent_over_time"})
     with pytest.raises(ValidationError):
         validator.validate(expr)
