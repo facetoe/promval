@@ -52,3 +52,27 @@ class AggregationLabelValueValidator(Validator):
     def enterAggregation(self, ctx: PromQLParser.AggregationContext):
         context, labels = self.extract_labels(ctx)
         self.stack.append((labels, context))
+
+
+class AggregationFunctionValidator(Validator):
+    def __init__(self, blacklisted: Set[str]):
+        self.blacklisted = blacklisted
+
+    def enterAggregation(self, ctx: PromQLParser.AggregationContext):
+        operator_name = ctx.AGGREGATION_OPERATOR().getText()
+        if operator_name in self.blacklisted:
+            self.errors.append(
+                Error(ctx, f"using blacklisted aggregator {operator_name}")
+            )
+
+
+class FunctionValidator(Validator):
+    def __init__(self, blacklisted: Set[str]) -> None:
+        self.blacklisted = blacklisted
+
+    def enterFunction_(self, ctx: PromQLParser.Function_Context):
+        function_name = ctx.FUNCTION().getText()
+        if function_name in self.blacklisted:
+            self.errors.append(
+                Error(ctx, f"using blacklisted function {function_name}")
+            )
