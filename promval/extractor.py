@@ -1,5 +1,6 @@
 from typing import List
 
+from antlr4 import ParserRuleContext
 from promval import ParseWalker, PromQLParser
 from promval.types import Label
 

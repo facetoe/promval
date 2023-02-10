@@ -2,7 +2,7 @@ from promval.parser.PromQLLexer import PromQLLexer
 from promval.parser.PromQLParser import PromQLParser
 from promval.parser.PromQLParserListener import PromQLParserListener
 
-from antlr4 import ParseTreeWalker, InputStream, CommonTokenStream
+from antlr4 import ParseTreeWalker, ParserRuleContext, InputStream, CommonTokenStream
 from antlr4.error.ErrorListener import ErrorListener
 
 from promval.error import PromQLSyntaxError
@@ -18,9 +18,12 @@ class MyErrorListener(ErrorListener):
 
 class ParseWalker(PromQLParserListener):
     def _execute(self, promql):
-        walker = ParseTreeWalker()
         tree = self._parse(promql)
-        walker.walk(self, tree)
+        self._walk(tree)
+
+    def _walk(self, ctx: ParserRuleContext):
+        walker = ParseTreeWalker()
+        walker.walk(self, ctx)
 
     def _parse(self, promql):
         input_stream = InputStream(promql)
