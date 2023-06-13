@@ -13,11 +13,13 @@ class SubtreeExtractor(ParseWalker):
         self.items.clear()
         return items
 
+
 class AggregationGroupSubExtractor(SubtreeExtractor):
     def enterAggregation(self, ctx: PromQLParser.AggregationContext) -> None:
         agg_ctx, labels = self.extract_labels(ctx)
         if agg_ctx and labels:
             self.items.append((agg_ctx, labels))
+
 
 class MetricSubExtractor(SubtreeExtractor):
     def enterInstantSelector(self, ctx: PromQLParser.InstantSelectorContext) -> None:
